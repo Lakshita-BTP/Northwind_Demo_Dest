@@ -1,0 +1,85 @@
+<mvc:View controllerName="northwinddemodest.controller.Overview"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+
+    <Page title="Products">
+    <Button id="button" text="Open Menu" press="onPress" ariaHasPopup="Menu"/>
+        <content>
+            <Panel headerText="New Product" expandable="true" expanded="true">
+                <content>
+                    <f:SimpleForm id="inputForm" layout="ColumnLayout" editable="true">
+                        <f:toolbar>
+                            <Toolbar>
+                                <content>
+                                    <ToolbarSpacer/>
+                                    <Button icon="sap-icon://create" text="Create Product" press=".onCreate"/>
+                                </content>
+                            </Toolbar>
+                        </f:toolbar>
+                        <f:content>
+                            <core:Title text="General Data 1"/>
+                                <Label text="Name"/><Input value="{input>/Name}"/>
+                                <Label text="Description"/><Input value="{input>/Description}"/>
+                                <Label text="ReleaseDate"/><Input value="{input>/ReleaseDate}"/>
+                                <Label text="DiscontinuedDate"/><Input value="{input>/DiscontinuedDate}"/>
+                                <Label text="Rating"/><Input value="{input>/Rating}"/>
+                                <Label text="Price"/><Input value="{input>/Price}"/>
+                        </f:content>
+                    </f:SimpleForm>
+                </content>
+            </Panel>
+        </content>
+        <Table id="productTable" growing="true" growingThreshold="10" class="sapUiResponsiveMargin myProductTable" width="auto" mode="MultiSelect"
+                selectionChange="onSelectionChange"  > <!--items="{ path: '/Products'}"-->
+        		<headerToolbar>
+                    <OverflowToolbar>
+                        <content>
+                            <Title text="Products" level="H6"/>
+                            <ToolbarSpacer />
+                            <Button id="deleteProducts" text="Delete" press="deleteProducts" enabled="false" />
+                            <Button id="editProducts" text="Edit Products" press="editProducts" />
+                            <Button id="saveButton" text="Save" type="Transparent" press="onSaveTable" visible="false" />
+						    <Button id="cancelButton" text="Cancel" type="Transparent" press="onCancel" visible="false" />
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <infoToolbar>
+                    <OverflowToolbar>
+                        <Label text="Wide range of available products"/>
+                    </OverflowToolbar>
+                </infoToolbar>
+            <columns>
+                <Column width="10rem"><header><Text text="Product" /></header></Column>
+                <Column width="22rem"><header><Text text="Description" /></header></Column>
+                <Column width="12rem"><header><Text text="ReleaseDate" /></header></Column>
+                <Column width="12rem"><header><Text text="DiscontinuedDate" /></header></Column>
+                <Column width="8rem"><header><Text text="Rating" /></header></Column>
+                <Column width="12rem"><header><Text text="Price" /></header></Column>
+            </columns>
+            <items>
+                <ColumnListItem >
+                    <cells>
+                        <ObjectIdentifier title="{Name}" text="{ID}"/>
+                        <ObjectIdentifier title="{Description}" text="{Name}"/>
+                        <ObjectIdentifier title="{ path: 'ReleaseDate',
+                                                   type: 'sap.ui.model.type.Date',
+                                                   formatOptions: { pattern: 'EEE MMM-dd yyyy' } }"
+                                          text="{ path: 'CreatedOn',
+                                                  type: 'sap.ui.model.type.DateTime',
+                                                  formatOptions: { pattern: 'HH:mm:ss' } } (GMT+530)"/>
+                        <ObjectIdentifier title="{ path: 'DiscontinuedDate',
+                                                   type: 'sap.ui.model.type.Date',
+                                                   formatOptions: { pattern: 'EEE MMM-dd yyyy' } }"
+                                          text="{ path: 'DiscontinuedDate',
+                                                  type: 'sap.ui.model.type.DateTime',
+                                                  formatOptions: { pattern: 'HH:mm:ss' } } (GMT+530)"/>
+                        <Text text="{Rating}"/>
+                        <Text text="{Price}"/>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+    </Page>
+</mvc:View>

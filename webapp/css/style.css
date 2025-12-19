@@ -1,1 +1,45 @@
-/* Enter your custom styles here */
+/* Header Column BackGround Color */
+/* .myProductTable .sapMListTblHeaderCell {
+    background-color: #083272;
+} */
+
+/* Header Column BackGround Color Including Selection Box */
+.myProductTable .sapMListTblHeaderCell,
+.myProductTable .sapMListTblHeader .sapMListTblSelCol {
+    background-color: #6b0606;
+}
+
+/* Header Column Font Color */
+.myProductTable .sapMListTblHeaderCell .sapMText {
+    color: #ffffff;      /* header text color */
+    font-weight: bold;
+    font-size: 1.1rem;     /* Bigger font */
+    font-weight: 800;      /* Bold */
+}
+
+/* Change background for selected rows */
+/* .myProductTable .sapMLIBSelected .sapMListTblCell {
+    background-color: #edf7b4 !important;
+} */
+
+/* Selected row color (checkbox column INCLUDED) */
+.myProductTable .sapMLIBSelected .sapMListTblCell,
+.myProductTable .sapMLIBSelected .sapMListTblSelCol {
+    background-color: #d1eaff !important;
+}
+
+.myProductTable td:nth-child(8) {
+    background-color: #fff4e5;
+}
+
+/* Change background color for ALL cells (entire table body) 
+.myProductTable .sapMListTblCell {
+    background-color: #830909;
+} */
+
+/* Alternate row color (zebra striping) – Recommended */
+/* .myProductTable .sapMListItems > tr:nth-child(even) .sapMListTblCell {
+    background-color: #f9fafb;
+} */
+
+/*  Change background for a specific column  */
